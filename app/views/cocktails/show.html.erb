@@ -1,0 +1,9 @@
+<div class="container">
+<h1><%=@cocktail.name%></h1>
+<%@cocktail.ingredients.each do |i|%>
+<p><%=i.name%></p>
+<%end%>
+<%@cocktail.doses.each do |i|%>
+<p><%=i.description%><%=link_to "Delete the dose",dose_path(i), method: :delete, data: { confirm: 'Are you sure?' }%></p>
+<%end%>
+</div>
