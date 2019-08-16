@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body{
-  background-image: asset_url('gl.jpg');
+  background-image: asset_url('bg2.jpg');
   background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  min-width: 100vh;
 
 }
 
@@ -40,4 +44,7 @@ body{
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
 }
