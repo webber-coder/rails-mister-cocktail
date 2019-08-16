@@ -31,7 +31,7 @@
 
 <%@cocktails.each do |cocktail|%>
   <div class="col-sm card-category m-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  <%=cocktail.name%>
+  <%=link_to "#{cocktail.name}",cocktail_path(cocktail)%>
   <div class="card_info">
    <%cocktail.ingredients.each do|i|%>
    <%=i.name%>
