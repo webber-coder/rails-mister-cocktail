@@ -1,33 +1,29 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),
  rgba(0,0,0,0.2))">
-  <div class="head">
     <h1><strong><%=@cocktail.name%></strong></h1>
-  </div>
+
 </div>
 
-<div class="container">
+<div class="container d-flex justify-content-around mt-3">
+ <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill,class: "img_cocktail"%>
+  <div class="head">
   <div class="description">
     <h2>Description</h2>
-      <ul>
-      <%@cocktail.ingredients.each do |i|%>
-        <%i.doses.each do |d|%>
-          <li><%=d.description%> of <%=i.name%></li>
-        <%end%>
-          <%=link_to "Delete the dose",dose_path(i), method: :delete, data: { confirm: 'Are you sure?' }%></p>
-        <%end%>
-      </ul>
-
-    <h3>Ingredients</h3>
+    <p><%=@cocktail.description%></p>
+  </div>
 
     <div class="ingredients">
-      <ul>
+    <h3>Ingredients</h3>
+    <ul>
       <%@cocktail.ingredients.each do |i|%>
-        <li><%=i.name%></li>
-      <%end%>
+        <%i.doses.each do |d|%>
+          <li><%=i.name%>- (<%=d.description%>)
+          <%=link_to "(delete)",dose_path(d), method: :delete, data: { confirm: 'Are you sure?' },class: "text-white text-decoration-none"%></li>
+        <%end%>
+        <%end%>
       </ul>
+      <%=link_to "Add ingredients",new_cocktail_dose_path(@cocktail), class: "btn btn-ghost"%>
     </div>
 
-    <p><%=link_to "Add ingredients",new_cocktail_dose_path(@cocktail)%></p>
-  </div>
 </div>
 

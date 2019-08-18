@@ -1,6 +1,15 @@
+<div class="container mt-3">
+  <h1 style="color: white; text-align: center;">YOU CAN ADD YOUR DOSES WITH CHECKING OUT YOUR DESCRIPTION BELOW</h1>
+  <div class="form">
 <%=simple_form_for [@cocktail,@dose] do |f| %>
   <%= f.input :description %>
   <%= f.association :cocktail %>
   <%= f.association :ingredient %>
   <%= f.submit "Add the dose" %>
 <% end %>
+</div>
+<div class="description mt-3">
+  <h3>Description</h3>
+  <%=@cocktail.description%>
+</div>
+</div>
